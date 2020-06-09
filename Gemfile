@@ -10,6 +10,8 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.1'
+# Static ruby code analyzer (linter)
+gem 'rubocop', require: false
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Use Slim templates
