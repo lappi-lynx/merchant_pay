@@ -36,5 +36,7 @@ module MerchantPay
     config.generators do |g|
       g.template_engine = :slim
     end
+
+    config.active_record.schema_format = :sql
   end
 end
