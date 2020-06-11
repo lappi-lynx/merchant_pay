@@ -24,6 +24,7 @@ gem 'webpacker', '~> 4.0'
 gem 'whenever', require: false
 
 group :development, :test do
+  gem 'awesome_print'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara'
   gem 'database_cleaner'
