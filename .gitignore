@@ -27,6 +27,8 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+# Skip db schema in repo
+/db/structure.sql
 
 /public/packs
 /public/packs-test

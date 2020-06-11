@@ -6,7 +6,7 @@ RSpec.describe Merchant, type: :model do
   it { expect(subject).to be_valid }
 
   describe 'associations' do
-    it { should have_many(:transactions) }
+    it { should have_many(:transactions).dependent(:restrict_with_exception) }
   end
 
   describe 'validations' do
@@ -15,7 +15,7 @@ RSpec.describe Merchant, type: :model do
     it { should validate_presence_of(:status) }
 
     it do
-      is_expected.to define_enum_for(:status).with(
+      is_expected.to define_enum_for(:status).with_values(
         active: 'active',
         inactive: 'inactive'
       ).backed_by_column_of_type(:enum)

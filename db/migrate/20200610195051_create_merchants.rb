@@ -13,16 +13,16 @@ class CreateMerchants < ActiveRecord::Migration[6.0]
       CREATE TYPE merchant_status AS ENUM ('active', 'inactive');
     SQL
 
-    add_column :merchants, :status, :merchant_status
+    add_column :merchants, :status, :merchant_status, default: 'active'
     add_index  :merchants, :status
   end
 
   def down
-    drop_index :merchants, :status
-    drop_table :merchants
+    remove_index :merchants, :status
+    drop_table   :merchants
 
     execute <<-SQL
-      DROP TYPE merchant_status;
+      DROP TYPE IF EXISTS merchant_status;
     SQL
   end
 end
