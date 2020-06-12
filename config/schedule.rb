@@ -1,3 +1,3 @@
 every :hour do
-  # TODO: Execute background job for deleting transactions older than 1 hour
+  rake "transactions:wipe_older_than_hour"
 end

@@ -3,8 +3,8 @@ require 'csv'
 namespace :merchants do
   namespace :import do
     desc 'Import merchants from CSV file'
-      task :from_csv, [:file_path] => :environment do |_, args|
-        abort('Please provide file_path') if args[:file_path].blank?
+    task :from_csv, [:file_path] => :environment do |_, args|
+      abort('Please provide file_path') if args[:file_path].blank?
 
       data_to_insert = []
       data_hash = File.read(args[:file_path])

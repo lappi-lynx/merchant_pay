@@ -8,6 +8,7 @@ App has authentication for API and 2 roles: Admin and Merchant.
 Form objects and model validations implemented via `Reform` gem
 Units specs written with `Rspec`.
 `Rubocop` is used for a good code style.
+Cron job for wiping old (> 1 hour) transactions is scheduled by `whenever`.
 
 ##Tech info:
 * Rails v 6.0.3 using webpack and bootstrap
