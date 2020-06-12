@@ -2146,7 +2146,7 @@ Naming/MethodParameterName:
   VersionAdded: '0.53'
   VersionChanged: '0.77'
   # Parameter names may be equal to or greater than this value
-  MinNameLength: 3
+  MinNameLength: 2
   AllowNamesEndingInNumbers: true
   # Allowed names that will not register an offense
   AllowedNames:

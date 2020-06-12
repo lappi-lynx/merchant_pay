@@ -1,9 +1,9 @@
-= simple_form_for @merchant do |f|
-  - if @merchant.errors.any?
+= simple_form_for @form do |f|
+  - if @form.errors.any?
     .alert.alert-danger.text-left
-      h6 = "#{pluralize(@merchant.errors.count, "error")} prohibited this merchant from being saved:"
+      h6 = "#{pluralize(@form.errors.count, "error")} prohibited this merchant from being saved:"
       ul
-        - @merchant.errors.full_messages.each do |message|
+        - @form.errors.full_messages.each do |message|
           li = message
   .form-inputs
     = f.input :name, label: false, placeholder: 'Merchant name'
