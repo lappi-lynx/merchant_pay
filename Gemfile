@@ -8,6 +8,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'jbuilder', '~> 2.7'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
+# Text progress bar for terminal
+gem 'progressbar'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
