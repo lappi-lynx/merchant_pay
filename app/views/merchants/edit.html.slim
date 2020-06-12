@@ -1,0 +1,9 @@
+.text-center
+  h2 Editing merchant details
+
+.col-md-4.mt-5
+  == render 'form'
+  br
+  => link_to 'Show', @merchant, class: 'btn btn-sm btn-info'
+  =< link_to 'Back', merchants_path, class: 'btn btn-sm btn-info'
+

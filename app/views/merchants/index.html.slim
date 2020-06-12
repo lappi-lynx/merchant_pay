@@ -1,0 +1,25 @@
+.text-center
+  h2 Merchants list
+
+.col-md-6.order-md-2.mt-5
+  table.table.table-striped.table-bordered
+    thead
+      tr
+        th Name
+        th Email
+        th Transactions count
+        th Total transactions sum
+        th Status
+        th Actions
+
+    tbody
+      - @merchants.each do |merchant|
+        tr class=(merchant.active? ? '' : 'table-danger')
+          td = link_to merchant.name, merchant
+          td = merchant.email
+          td = merchant.transactions.count
+          td = merchant.total_transaction_sum
+          td = merchant.status
+          td
+            =< link_to 'Edit', edit_merchant_path(merchant), class: 'btn btn-sm btn-success'
+            =< link_to 'Destroy', merchant, data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-sm btn-danger' unless merchant.transactions.present?

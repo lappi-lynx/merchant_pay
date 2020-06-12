@@ -1,0 +1,15 @@
+= simple_form_for @merchant do |f|
+  - if @merchant.errors.any?
+    .alert.alert-danger.text-left
+      h6 = "#{pluralize(@merchant.errors.count, "error")} prohibited this merchant from being saved:"
+      ul
+        - @merchant.errors.full_messages.each do |message|
+          li = message
+  .form-inputs
+    = f.input :name, label: false, placeholder: 'Merchant name'
+    = f.input :email, label: false, placeholder: 'Merchant name'
+    = f.input :description, label: false, placeholder: 'Merchant description', input_html: { rows: 5 }
+    = f.input :status, as: :select, collection: Merchant.statuses.keys, label: false, placeholder: 'Status'
+
+  .form-actions
+    = f.button :submit, class: 'btn btn-sm btn-success'
