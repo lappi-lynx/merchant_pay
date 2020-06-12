@@ -10,7 +10,7 @@ Units specs written with `Rspec`.
 `Rubocop` is used for a good code style.
 Cron job for wiping old (> 1 hour) transactions is scheduled by `whenever`.
 
-##Tech info:
+## Tech info:
 * Rails v 6.0.3 using webpack and bootstrap
 * Ruby version 2.6.3
 * Database PostgreSQL
