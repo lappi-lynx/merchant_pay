@@ -1,24 +1,24 @@
-# README
+## Payment System Task
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a *Payment System Task* for EmerchantPay company.
+Merchants has different types of transactions.
+Merchants can be imported by csv rake task.
+Transactions coming by API in json/xml formats.
+App has authentication for API and 2 roles: Admin and Merchant.
+Form objects and model validations implemented via `Reform` gem
+Units specs written with `Rspec`.
+`Rubocop` is used for a good code style.
 
-Things you may want to cover:
+##Tech info:
+* Rails v 6.0.3 using webpack and bootstrap
+* Ruby version 2.6.3
+* Database PostgreSQL
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Setup
+```
+rails db:create db:migrate db:seed
+bin/bundle rails s
+bin/webpack-dev-server
+```
+To execute rake task for `Merchant` import run:
+`bin/bundle exec rake merchants:import:from_csv\['lib/tasks/merchants_for_import.csv'\]`
