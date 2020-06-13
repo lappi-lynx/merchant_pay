@@ -16,3 +16,6 @@ html
       - if flash[:alert].present?
         .col-md-4.alert.alert-danger = flash[:alert]
       = yield
+      footer.page-footer.mt-5
+        - if user_signed_in?
+          = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-sm btn-danger'

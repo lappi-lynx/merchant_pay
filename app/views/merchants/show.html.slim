@@ -28,4 +28,4 @@ dl.row.text-left.col-md-8.mt-5
       - @merchant.transactions.each do |transaction|
         = render partial: 'transaction', locals: { transaction: transaction }
 =< link_to 'Edit', edit_merchant_path(@merchant), class: 'btn btn-sm btn-success'
-=< link_to 'Back', merchants_path, class: 'btn btn-primary btn-sm'
+=< link_to 'Back', merchants_path, class: 'btn btn-primary btn-sm' if can?(:index, Merchant)

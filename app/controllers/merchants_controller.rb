@@ -1,4 +1,5 @@
 class MerchantsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_merchant, only: %i[show edit update destroy]
   before_action :form, only: %i[edit update]
 
@@ -8,7 +9,7 @@ class MerchantsController < ApplicationController
 
   def update
     if form.validate_and_save!(merchant_params)
-      redirect_to resource, notice: "#{resource_class} was successfully updated."
+      redirect_to resource_object, notice: "#{resource_class} was successfully updated."
     else
       render :edit
     end
@@ -23,7 +24,7 @@ class MerchantsController < ApplicationController
   private
 
   def set_merchant
-    @merchant = resource
+    @merchant = resource_object
   end
 
   def form_class
