@@ -1,5 +1,6 @@
 FactoryBot.define do
-  factory :merchant do
+  factory :user do
+    association :role
     name { Faker::Name.first_name }
     description { Faker::Lorem.sentence }
     email { Faker::Internet.email }

@@ -1,8 +1,9 @@
-merchant = Merchant.create!(
+merchant = Merchant.first_or_create(
   name: Faker::Name.first_name,
   description: 'Merchant description',
-  email: Faker::Internet.email,
-  total_transaction_sum: Faker::Number.decimal
+  email: 'merchant@mail.com',
+  total_transaction_sum: Faker::Number.decimal,
+  password: 'password123'
 )
 
 Transactions::Authorize.create!(
@@ -13,3 +14,7 @@ Transactions::Authorize.create!(
   amount: Faker::Number.decimal,
   status: 'approved'
 )
+
+admin_role = Role.find_or_create_by(name: ::Role::MERCHANT)
+merchant_role = Role.find_or_create_by(name: ::Role::ADMIN)
+admin = User.first_or_create(name: 'Admin', email: 'admin@mail.com', password: 'password123', role_id: admin_role.id)

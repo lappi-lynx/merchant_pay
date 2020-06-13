@@ -35,16 +35,18 @@ namespace :merchants do
       prepared_merchants_data =
         merchants_data.map do |row|
           row.to_h.tap do |r|
+            role_type = r[:type] == 'Merchant' ? :merchant : :admin
+
             r[:name] = r.delete(:merchant_name)
             r[:created_at] = DateTime.now
             r[:updated_at] = DateTime.now
+            r[:role_id] = Role.find_or_create_by(name: role_type).id
             progress_bar.increment
           end
         end
 
       begin
-        # TODO add unique index to skip duplicates by passing unique_by option
-        ::Merchant.insert_all(prepared_merchants_data)
+        Merchant.insert_all(prepared_merchants_data, unique_by: 'index_users_on_email')
         puts "Import of #{prepared_merchants_data.size} merchants successfully finished."
       rescue => e
         puts "Merchants import error: #{e}"

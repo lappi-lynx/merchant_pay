@@ -11,6 +11,8 @@ html
     .containter{align='center'}
       .mt-3.text-center
         = image_tag 'logo.png', class: 'd-block mx-auto', height: '60px'
-      - if flash.present?
+      - if flash[:notice].present?
         .col-md-4.alert.alert-info = flash[:notice]
+      - if flash[:alert].present?
+        .col-md-4.alert.alert-danger = flash[:alert]
       = yield

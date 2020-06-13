@@ -11,7 +11,7 @@ module V1
       property :status
       property :customer_phone
       property :customer_email
-      property :merchant_id
+      property :user_id
 
       validates :uuid, presence: true
       validates :customer_email, presence: true

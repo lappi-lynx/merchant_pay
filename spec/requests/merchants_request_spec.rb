@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'MerchantsController', type: :request do
+  let(:admin)     { create(:user) }
   let!(:merchant) { create(:merchant) }
   let(:valid_attributes) do
     { name: 'New name' }
@@ -8,6 +9,8 @@ RSpec.describe 'MerchantsController', type: :request do
   let(:invalid_attributes) do
     { name: '' }
   end
+
+  before { sign_in admin }
 
   describe 'GET /index' do
     it 'renders a successful response' do

@@ -1,6 +1,5 @@
 class Transaction < ApplicationRecord
-  self.abstract_class = true
-  belongs_to :merchant
+  belongs_to :merchant, foreign_key: 'user_id'
 
   enum status: {
     approved: 'approved',
@@ -8,4 +7,11 @@ class Transaction < ApplicationRecord
     reversed: 'reversed',
     error: 'error'
   }
+
+  def initialize(*args)
+    # Avoid to initialize parent transaction without a type
+    raise "Cannot directly instantiate a #{self.class.name}" if self.class == Transaction
+
+    super
+  end
 end
