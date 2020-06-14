@@ -2,21 +2,14 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
 
   def after_sign_in_path_for(resource)
-    if resource.admin?
-      merchants_path
-    elsif resource.merchant?
-      merchant_path(resource)
-    end
+    root_for_user(resource)
   end
 
   rescue_from CanCan::AccessDenied do |exception|
-    # TODO: define route constaints for root_url based on current_user role to handle AccessDenien
-    render plain: exception, content_type: 'text/plain', status: 403
-    # respond_to do |format|
-    # format.json { head :forbidden, content_type: 'text/html' }
-    # format.html { redirect_to root_url, notice: exception.message }
-    # format.js   { head :forbidden, content_type: 'text/html' }
-    # end
+    respond_to do |format|
+      format.json { head :forbidden, content_type: 'text/html', status: 403 }
+      format.html { redirect_to root_for_user(current_user), alert: exception.message }
+    end
   end
 
   protected
@@ -43,5 +36,15 @@ class ApplicationController < ActionController::Base
 
   def resource_to_presenter(resource_object)
     presenter_class.new(resource_object)
+  end
+
+  private
+
+  def root_for_user(resource)
+    if resource.admin?
+      merchants_path
+    elsif resource.merchant?
+      merchant_path(resource)
+    end
   end
 end
