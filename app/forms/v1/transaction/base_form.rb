@@ -5,7 +5,7 @@ module V1
     class BaseForm < ::BaseForm
       model :transaction
 
-      property :uuid
+      property :uuid, parse: false
       property :type
       property :amount
       property :status
@@ -13,6 +13,7 @@ module V1
       property :customer_email
       property :user_id
 
+      validates :user_id, presence: true
       validates :uuid, presence: true
       validates :customer_email, presence: true
       validates :status, presence: true

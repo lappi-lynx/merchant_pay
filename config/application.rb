@@ -39,7 +39,6 @@ module MerchantPay
 
     config.active_record.schema_format = :sql
 
-    config.paths.add "#{config.root}/lib", glob: '*', eager_load: true
-    config.eager_load_paths += %W(#{config.root}/app/**/*.rb)
+    config.eager_load_paths += %W(#{config.root}/app/**/*.rb #{config.root}/lib)
   end
 end

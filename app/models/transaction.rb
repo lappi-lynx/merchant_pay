@@ -1,5 +1,6 @@
 class Transaction < ApplicationRecord
   belongs_to :merchant, foreign_key: 'user_id'
+  after_initialize :defaults
 
   enum status: {
     approved: 'approved',
@@ -13,5 +14,13 @@ class Transaction < ApplicationRecord
     raise "Cannot directly instantiate a #{self.class.name}" if self.class == Transaction
 
     super
+  end
+
+  protected
+
+  def defaults
+    return if persisted?
+
+    self.uuid ||= SecureRandom.uuid
   end
 end

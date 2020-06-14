@@ -1317,7 +1317,7 @@ Lint/AmbiguousBlockAssociation:
                  Checks for ambiguous block association with method when param passed without
                  parentheses.
   StyleGuide: '#syntax'
-  Enabled: true
+  Enabled: false
   VersionAdded: '0.48'
 
 Lint/AmbiguousOperator:

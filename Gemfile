@@ -10,6 +10,8 @@ gem 'cancancan'
 gem 'devise'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
+# Encoding and decoding of HMACSHA256 tokens
+gem 'jwt'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Text progress bar for terminal
@@ -25,6 +27,8 @@ gem 'reform-rails'
 gem 'rubocop', require: false
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
+# A simple, standardized way to build and use Service Objects (aka Commands) in Ruby
+gem 'simple_command'
 # Rails forms made easy.
 gem 'simple_form'
 # Use Slim templates
