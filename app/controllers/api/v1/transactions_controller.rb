@@ -16,21 +16,20 @@ module Api
       private
 
       def form_class
-        # TODO: use transaction specific type form based on resource_class
-        ::V1::Transaction::AuthorizeForm
+        "::V1::Transaction::#{transaction_type}Form".constantize
       end
 
       def resource_class
-        # TODO: map type from params to one of the following transactions:
-        # Transactions::Authorize
-        # Transactions::Refund
-        # Transactions::Reversal
-        # Transactions::Charge
-        ::Transactions::Authorize
+        "::Transactions::#{transaction_type}".constantize
+      end
+
+      def transaction_type
+        transaction_params[:type].capitalize
       end
 
       def transaction_params
-        params.fetch(:transaction).permit(:user_id, :customer_phone, :customer_email, :amount, :status)
+        # allowed types: authorize, refund, reversal, charge
+        params.fetch(:transaction).permit(:type, :user_id, :customer_phone, :customer_email, :amount, :status)
       end
     end
   end

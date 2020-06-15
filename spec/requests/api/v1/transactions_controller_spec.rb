@@ -5,6 +5,7 @@ RSpec.describe 'TransactionsController', type: :request do
   let!(:merchant) { create(:merchant) }
   let(:valid_attributes) do
     {
+      type: 'authorize',
       user_id: merchant.id,
       customer_phone: Faker::PhoneNumber.cell_phone_in_e164,
       customer_email: Faker::Internet.email,

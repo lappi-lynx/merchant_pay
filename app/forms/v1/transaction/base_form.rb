@@ -5,8 +5,8 @@ module V1
     class BaseForm < ::BaseForm
       model :transaction
 
+      property :type, virtual: true
       property :uuid, parse: false
-      property :type
       property :amount
       property :status
       property :customer_phone
