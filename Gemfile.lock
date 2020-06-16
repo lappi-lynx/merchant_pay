@@ -78,6 +78,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
+    childprocess (3.0.0)
     chronic (0.10.2)
     concurrent-ruby (1.1.6)
     crass (1.0.6)
@@ -220,6 +221,7 @@ GEM
     rubocop-ast (0.0.3)
       parser (>= 2.7.0.1)
     ruby-progressbar (1.10.1)
+    rubyzip (2.3.0)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
@@ -230,6 +232,9 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    selenium-webdriver (3.142.7)
+      childprocess (>= 0.5, < 4.0)
+      rubyzip (>= 1.2.2)
     shoulda-matchers (4.3.0)
       activesupport (>= 4.2.0)
     simple_command (0.1.0)
@@ -305,6 +310,7 @@ DEPENDENCIES
   rspec-rails (~> 4.0.1)
   rubocop
   sass-rails (>= 6)
+  selenium-webdriver
   shoulda-matchers (~> 4.3)
   simple_command
   simple_form

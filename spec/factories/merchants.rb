@@ -6,5 +6,11 @@ FactoryBot.define do
     total_transaction_sum { Faker::Number.number(digits: 2) }
     status { 'active' }
     password { 'password123' }
+
+    trait :with_authorize_transaction do
+      before(:create) do |merchant|
+        merchant.transactions << build(:authorized_transaction)
+      end
+    end
   end
 end

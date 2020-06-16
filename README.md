@@ -19,6 +19,8 @@ This is a **Payment System Task** for EmerchantPay company.
 Cron job for wiping old (> 1 hour) transactions is scheduled by `whenever`.
 For manual run use `bundle exec rake transactions:wipe_older_than_hour`
 
+Feature specs written with **Capybara**. Run `bin/bundle exec rspec spec/features`
+
 ## Tech info:
 * Rails v 6.0.3 using webpack and bootstrap
 * Ruby version 2.6.3
@@ -47,7 +49,6 @@ curl -H "Content-Type: application/json" -X POST -d '{"email":"admin@mail.com","
 
 ### TODO:
 - Creating Transactions with XML format.
-- Feature specs with Capybara.
 - Transaction types processing:
   `Authorize -> Charge -> Refund`
   `Authorize -> Reversal`

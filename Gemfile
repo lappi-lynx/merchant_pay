@@ -46,6 +46,7 @@ group :development, :test do
   gem 'factory_bot'
   gem 'faker'
   gem 'rspec-rails', '~> 4.0.1'
+  gem 'selenium-webdriver'
   gem 'shoulda-matchers', '~> 4.3'
 end
 
