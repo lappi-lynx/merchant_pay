@@ -1,6 +1,6 @@
 ## Payment System Task
 
-This is a **Payment System Task** for EmerchantPay company.
+This is a **Payment System Task** - test hiring application for some company.
 - **Merchants** has different types of transactions.
 
 - Merchants is imported from `csv` by rake task. **Run**:
