@@ -39,6 +39,7 @@ jobs:
         run: |
           gem install bundler
           bundle install --jobs 4 --retry 3
+          bundle exec rails webpacker:install
           bundle exec rails db:create
           bundle exec rails db:migrate
       - name: Build and test with rspec
@@ -46,4 +47,12 @@ jobs:
           RAILS_ENV: test
           PGHOST: 127.0.0.1
           PGUSER: postgres
-        run: bundle exec rspec spec
+        run: bundle exec rspec spec/models spec/forms spec/requests
+      - name: setup-chromedriver
+        uses: nanasess/setup-chromedriver@v1.0.1
+      - name: Run capybara
+        env:
+            RAILS_ENV: test
+            PGHOST: 127.0.0.1
+            PGUSER: postgres
+        run: bundle exec rspec spec/features

@@ -99,3 +99,4 @@ RSpec::Expectations.configuration.on_potential_false_positives = :nothing
 Faker::Config.locale = :en
 
 Capybara.default_driver = :selenium_chrome_headless
+Capybara.server = :puma
