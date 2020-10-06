@@ -106,7 +106,7 @@ AllCops:
   # the `--enable-pending-cops` command-line option.
   # When `NewCops` is `disable`, pending cops are disabled in bulk. Can be overridden by
   # the `--disable-pending-cops` command-line option.
-  NewCops: pending
+  NewCops: enable
   # Enables the result cache if `true`. Can be overridden by the `--cache` command
   # line option.
   UseCache: true
@@ -1846,7 +1846,7 @@ Lint/UselessAssignment:
   Enabled: true
   VersionAdded: '0.11'
 
-Lint/UselessComparison:
+Lint/BinaryOperatorWithIdenticalOperands:
   Description: 'Checks for comparison of something with itself.'
   Enabled: true
   VersionAdded: '0.11'
@@ -2892,7 +2892,6 @@ Style/FrozenStringLiteralComment:
     # `never` will enforce that the frozen string literal comment does not
     # exist in a file.
     - never
-  Safe: false
 
 Style/GlobalVars:
   Description: 'Do not introduce global variables.'
@@ -3126,7 +3125,7 @@ Style/MethodDefParentheses:
     - require_no_parentheses
     - require_no_parentheses_except_multiline
 
-Style/MethodMissingSuper:
+Lint/MissingSuper:
   Description: Checks for `method_missing` to call `super`.
   StyleGuide: '#no-method-missing'
   Enabled: true
@@ -3897,7 +3896,6 @@ Style/SymbolLiteral:
 Style/SymbolProc:
   Description: 'Use symbols as procs instead of blocks when possible.'
   Enabled: true
-  SafeAutoCorrect: false
   VersionAdded: '0.26'
   VersionChanged: '0.64'
   # A list of method names to be ignored by the check.

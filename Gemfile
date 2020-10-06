@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.3'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 # Roles authorization
@@ -24,7 +23,7 @@ gem 'rails', '~> 6.0.3', '>= 6.0.3.1'
 gem 'reform', '~> 2.2.4'
 gem 'reform-rails'
 # Static ruby code analyzer (linter)
-gem 'rubocop', require: false
+gem 'rubocop', '>= 0.92', require: false
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # A simple, standardized way to build and use Service Objects (aka Commands) in Ruby
