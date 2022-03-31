@@ -16,7 +16,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 # Text progress bar for terminal
 gem 'progressbar'
 # Use Puma as the app server
-gem 'puma', '~> 4.1'
+gem 'puma', '~> 4.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.1'
 # Form objects decoupled from your models.
